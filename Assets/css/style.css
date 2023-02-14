@@ -22,11 +22,15 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 /* Header Start */
+
 
 .content-header {
     max-width: 500px;
@@ -36,6 +40,8 @@ body {
     padding-top: 30px;
     line-height: 100px;
 }
+
+
 
 h1 {
     font-family: var(--font-primary);
@@ -57,12 +63,38 @@ h2 {
 
 .container {
     max-width: 1000px;
-    min-height: 300px;
-    margin: 250px auto;
-    padding: 0px 20px;
-    display:flex;
+    margin: 0 auto;
+    padding-bottom: 120px;
+    display: flex;
     gap: 70px;
+
 }
+
+/* CSS grid Start */
+
+.content-movie {
+    display: grid;
+    grid-template-areas:
+        'description'
+        'avaliation'
+        'buttons'
+    ;
+}
+
+
+.content-movie .desc {
+    grid-area: description;
+}
+
+.content-movie .avaliation-movie {
+    grid-area: avaliation;
+}
+
+.content-movie .button-options {
+    grid-area: buttons;
+}
+
+/* CSS grid End */
 
 p {
     font-family: var(--font-primary);
@@ -71,10 +103,12 @@ p {
 }
 
 .avaliation-movie {
+    font-family: var(--font-primary);
     display: flex;
     justify-content: space-between;
-    font-size: 33px;
+    font-size: 28px;
     margin-top: 40px;
+    padding: 0px 20px;
 }
 
 .star-movie .star-gold {
@@ -86,9 +120,10 @@ p {
 }
 
 .button-options {
-    display:flex;
+    display: flex;
     gap: 15px;
     margin-top: 40px;
+    padding: 0px 20px;
 }
 
 .style-button {
@@ -98,9 +133,10 @@ p {
     font-size: 14px;
     font-weight: 700;
     background-color: #0072D2;
-    cursor: pointer;
     border-radius: 3px;
     text-align: center;
+    border: none;
+    cursor: pointer;
 }
 
 .button-options .button-trailer {
@@ -111,7 +147,7 @@ p {
 
 .button-options .style-button:hover {
     background-color: #0987ee;
-} 
+}
 
 .button-options .button-trailer:hover {
     background-color: #040405;
@@ -124,6 +160,60 @@ p {
 
 /* Mobile Start */
 
+@media(max-width: 860px) {
+    .container {
+        max-width: 860px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 80px;
+    }
 
+
+}
+
+@media(max-width: 670px) {
+    .content-movie {
+        grid-template-areas:
+            'avaliation'
+            'buttons'
+            'description'
+        ;
+    }
+
+    .container {
+        padding-bottom: 0px;
+    }
+
+    .avaliation-movie {
+        font-size: 25px;
+    }
+
+    p {
+        background-color: #19191F;
+        align-items: justify;
+        padding: 20px;
+        border-top: 2px solid rgba(196, 196, 196, 0.08); 
+    }
+
+    .button-options {
+        background-color: #19191F;
+        padding: 20px;
+        justify-content: center;
+        border-radius: 30px 30px 0px 0px;
+        flex-wrap: wrap;
+    }
+
+    .button-options .button-trailer {
+        width: 150px;
+    }
+
+    .avaliation-movie {
+        padding: 0px 20px;
+        font-size: 18px;
+        margin-top: 0px;
+        flex-wrap: wrap;
+    }
+
+}
 
 /* Mobile End */
